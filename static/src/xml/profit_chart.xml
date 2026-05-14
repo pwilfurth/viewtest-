@@ -1,7 +1,0 @@
-<templates xml:space="preserve">
-    <t t-name="profit_dashboard.ProfitChart">
-        <div class="p-3">
-            <canvas id="profitChart" width="400" height="400"/>
-        </div>
-    </t>
-</templates>
