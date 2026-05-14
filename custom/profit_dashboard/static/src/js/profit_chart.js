@@ -5,9 +5,7 @@ import { Component, onMounted } from "@odoo/owl";
 
 export class ProfitChart extends Component {
     setup() {
-        onMounted(async () => {
-            const { Chart } = await import("chart.js/auto");
-
+        onMounted(() => {
             const ctx = document.getElementById("profitChart");
 
             new Chart(ctx, {
@@ -15,18 +13,9 @@ export class ProfitChart extends Component {
                 data: {
                     labels: [""],
                     datasets: [
-                        {
-                            label: "Ventas",
-                            data: [55],
-                        },
-                        {
-                            label: "Gastos",
-                            data: [38],
-                        },
-                        {
-                            label: "Utilidad",
-                            data: [17],
-                        },
+                        { label: "Ventas", data: [55] },
+                        { label: "Gastos", data: [38] },
+                        { label: "Utilidad", data: [17] },
                     ],
                 },
                 options: {
@@ -35,10 +24,10 @@ export class ProfitChart extends Component {
                         x: { stacked: true },
                         y: {
                             stacked: true,
-                            max: 100,
-                        },
-                    },
-                },
+                            max: 100
+                        }
+                    }
+                }
             });
         });
     }
@@ -46,7 +35,6 @@ export class ProfitChart extends Component {
 
 ProfitChart.template = "profit_dashboard.ProfitChart";
 
-/* DAS FEHLT */
 registry.category("actions").add(
     "profit_dashboard.ProfitChart",
     ProfitChart
