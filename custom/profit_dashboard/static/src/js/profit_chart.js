@@ -8,26 +8,51 @@ export class ProfitChart extends Component {
         onMounted(() => {
             const ctx = document.getElementById("profitChart");
 
+            const ventas = 55;
+            const gastos = 38;
+            const utilidad = 17;
+            const total = ventas + gastos + utilidad;
+
             new Chart(ctx, {
                 type: "bar",
                 data: {
                     labels: [""],
                     datasets: [
-                        { label: "Ventas", data: [55] },
-                        { label: "Gastos", data: [38] },
-                        { label: "Utilidad", data: [17] },
+                        {
+                            label: "Ventas",
+                            data: [(ventas / total) * 100],
+                            backgroundColor: "#d32f2f",
+                        },
+                        {
+                            label: "Gastos",
+                            data: [(gastos / total) * 100],
+                            backgroundColor: "#1976d2",
+                        },
+                        {
+                            label: "Utilidad",
+                            data: [(utilidad / total) * 100],
+                            backgroundColor: "#388e3c",
+                        },
                     ],
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                        },
+                    },
                     scales: {
-                        x: { stacked: true },
+                        x: {
+                            stacked: true,
+                        },
                         y: {
                             stacked: true,
-                            max: 100
-                        }
-                    }
-                }
+                            min: 0,
+                            max: 100,
+                        },
+                    },
+                },
             });
         });
     }
