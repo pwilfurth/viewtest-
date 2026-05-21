@@ -22,21 +22,28 @@ export class ProfitChart extends Component {
                             label: "Ventas",
                             data: [(ventas / total) * 100],
                             backgroundColor: "#d32f2f",
+                            barPercentage: 0.3,
+                            categoryPercentage: 0.3,
                         },
                         {
                             label: "Gastos",
                             data: [(gastos / total) * 100],
                             backgroundColor: "#1976d2",
+                            barPercentage: 0.3,
+                            categoryPercentage: 0.3,
                         },
                         {
                             label: "Utilidad",
                             data: [(utilidad / total) * 100],
                             backgroundColor: "#388e3c",
+                            barPercentage: 0.3,
+                            categoryPercentage: 0.3,
                         },
                     ],
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: "bottom",
@@ -48,8 +55,12 @@ export class ProfitChart extends Component {
                         },
                         y: {
                             stacked: true,
+                            beginAtZero: true,
                             min: 0,
                             max: 100,
+                            ticks: {
+                                stepSize: 20,
+                            },
                         },
                     },
                 },
@@ -59,6 +70,11 @@ export class ProfitChart extends Component {
 }
 
 ProfitChart.template = "profit_dashboard.ProfitChart";
+
+registry.category("actions").add(
+    "profit_dashboard.ProfitChart",
+    ProfitChart
+);
 
 registry.category("actions").add(
     "profit_dashboard.ProfitChart",
