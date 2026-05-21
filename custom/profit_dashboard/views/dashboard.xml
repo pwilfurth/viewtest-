@@ -7,6 +7,5 @@
     <menuitem
         id="profit_dashboard_menu"
         name="Profit Dashboard"
-        action="profit_dashboard_action"
-        sequence="1"/>
+        action="profit_dashboard_action"/>
 </odoo>
