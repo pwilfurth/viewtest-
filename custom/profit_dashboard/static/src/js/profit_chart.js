@@ -1,15 +1,16 @@
-/** @odoo-module **/
-
-import { registry } from "@web/core/registry";
-import { Component } from "@odoo/owl";
-
-class ProfitChart extends Component {
-    static template = "profit_dashboard.ProfitChart";
+{
+    "name": "Profit Dashboard",
+    "version": "1.0",
+    "depends": ["web"],
+    "data": [
+        "views/dashboard.xml",
+    ],
+    "assets": {
+        "web.assets_backend": [
+            "profit_dashboard/static/src/js/profit_chart.js",
+            "profit_dashboard/static/src/xml/profit_chart.xml",
+        ],
+    },
+    "installable": True,
+    "application": True,
 }
-
-registry.category("actions").add(
-    "profit_dashboard.ProfitChart",
-    ProfitChart
-);
-
-export default ProfitChart;
