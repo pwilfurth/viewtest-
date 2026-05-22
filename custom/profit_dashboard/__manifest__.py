@@ -1,5 +1,14 @@
-"assets": {
-    "web.assets_backend": [
-        "profit_dashboard/static/src/js/profit_chart.js",
+{
+    "name": "Profit Dashboard",
+    "version": "1.0",
+    "depends": ["web"],
+    "data": [
+        "views/dashboard.xml",
     ],
-},
+    "assets": {
+        "web.assets_backend": [
+            "profit_dashboard/static/src/js/profit_chart.js",
+        ],
+    },
+    "installable": True,
+}
