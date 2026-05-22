@@ -1,9 +1,13 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
+import { Component } from "@odoo/owl";
 
-registry.category("actions").add("profit_dashboard.ProfitChart", {
-    start() {
-        document.body.innerHTML += "<h1>Profit Dashboard Loaded</h1>";
-    },
-});
+class ProfitChart extends Component {
+    static template = "profit_dashboard.ProfitChart";
+}
+
+registry.category("actions").add(
+    "profit_dashboard.ProfitChart",
+    ProfitChart
+);
