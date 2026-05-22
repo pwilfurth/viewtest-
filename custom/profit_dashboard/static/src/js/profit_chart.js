@@ -1,34 +1,15 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
-import { Component, onMounted } from "@odoo/owl";
+import { Component, xml } from "@odoo/owl";
 
-export class ProfitChart extends Component {
-    setup() {
-        onMounted(() => {
-            if (!window.Chart) {
-                console.error("Chart.js not loaded");
-                return;
-            }
+class ProfitChart extends Component {}
 
-            const ctx = document.getElementById("profitChart");
-
-            new window.Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: ["Test"],
-                    datasets: [{
-                        label: "Ventas",
-                        data: [55],
-                        backgroundColor: "#d32f2f",
-                    }]
-                }
-            });
-        });
-    }
-}
-
-ProfitChart.template = "profit_dashboard.ProfitChart";
+ProfitChart.template = xml`
+    <div class="o_profit_dashboard">
+        <h1>Profit Dashboard</h1>
+    </div>
+`;
 
 registry.category("actions").add(
     "profit_dashboard.ProfitChart",
